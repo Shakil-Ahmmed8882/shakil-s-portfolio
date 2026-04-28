@@ -1,0 +1,21 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(rm -rf .next)",
+			"Bash(rm -rf node_modules/.cache)",
+			"Bash(xargs ls:*)",
+			"Bash(node:*)",
+			"Bash(git add:*)",
+			"Bash(git:*)",
+			"Bash(npx eslint:*)",
+			"mcp__claude_ai_Figma__get_screenshot",
+			"Bash(taskkill /F /PID 18536)",
+			"Bash(taskkill //F //PID 18536)",
+			"Bash(netstat -ano)",
+			"Bash(awk '{print $5}')",
+			"Bash(taskkill //F //PID 35380)",
+			"Bash(taskkill //F //PID 8604)",
+			"Bash(taskkill //F //PID 12188)"
+		]
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"permissions": {
+		"allow": [
+			"mcp__claude_ai_Figma__get_design_context",
+			"Read(//c/Dev/SpaceCats/Metro/Metro Hospitality/old-metro-housekeeping/shared/components/forms/**)",
+			"Bash(sed -i '119,128d' TaskCreation.tsx)",
+			"Bash(sed -i '118r /tmp/fix_multiselect.txt' TaskCreation.tsx)",
+			"Read(//c/Dev/SpaceCats/Metro/Metro/Metro Hospitality/metro-housekeeping/src/modules/shared/modals/**)",
+			"Read(//c/Dev/SpaceCats/Metro/Metro Hospitality/**)",
+			"Read(//c/Dev/SpaceCats/Metro/Metro/Metro Hospitality/metro-housekeeping/src/modules/task-create/components/**)",
+			"Bash(npx tsc:*)",
+			"Bash(sed -i '404s/type=\"button\"/<button/' \"src/modules/task-create/TaskCreation.tsx\")",
+			"Bash(sed -i '405d' \"src/modules/task-create/TaskCreation.tsx\")",
+			"Bash(sed -i '412s/type=\"button\"/<button/' \"src/modules/task-create/TaskCreation.tsx\")",
+			"Bash(sed -i '413d' \"src/modules/task-create/TaskCreation.tsx\")",
+			"Bash(npm run:*)"
+		],
+		"additionalDirectories": [
+			"c:\\Dev\\SpaceCats\\Metro\\Metro\\Metro Hospitality\\metro-housekeeping\\src\\modules\\task-create\\components"
+		]
+	}
+}
