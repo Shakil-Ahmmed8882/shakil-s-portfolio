@@ -1,19 +1,20 @@
 export type TSkill = {
   name: string;
   category: "frontend" | "backend" | "database" | "language";
+  icon: string; // emoji icon
 };
 
 export const skills: TSkill[] = [
-  { name: "Next.js", category: "frontend" },
-  { name: "Redux", category: "frontend" },
-  { name: "TypeScript", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Node.js", category: "backend" },
-  { name: "Express.js", category: "backend" },
-  { name: "PostgreSQL", category: "database" },
-  { name: "Prisma", category: "database" },
-  { name: "MongoDB", category: "database" },
-  { name: "C / C++", category: "language" },
+  { name: "Next.js",     category: "frontend",  icon: "▲" },
+  { name: "Redux",       category: "frontend",  icon: "🔄" },
+  { name: "TypeScript",  category: "frontend",  icon: "⬡" },
+  { name: "Tailwind CSS",category: "frontend",  icon: "🎨" },
+  { name: "Node.js",     category: "backend",   icon: "⬢" },
+  { name: "Express.js",  category: "backend",   icon: "⚡" },
+  { name: "PostgreSQL",  category: "database",  icon: "🐘" },
+  { name: "Prisma",      category: "database",  icon: "◈" },
+  { name: "MongoDB",     category: "database",  icon: "🍃" },
+  { name: "C / C++",     category: "language",  icon: "⚙" },
 ];
 
 export type TSkillGroup = {
@@ -23,8 +24,8 @@ export type TSkillGroup = {
 };
 
 export const skillGroups: TSkillGroup[] = [
-  { id: "frontend", title: "Frontend", caption: "Interfaces & motion" },
-  { id: "backend", title: "Backend", caption: "APIs & runtime" },
-  { id: "database", title: "Database", caption: "Persistence & ORM" },
+  { id: "frontend", title: "Frontend",  caption: "Interfaces & motion" },
+  { id: "backend",  title: "Backend",   caption: "APIs & runtime" },
+  { id: "database", title: "Database",  caption: "Persistence & ORM" },
   { id: "language", title: "Languages", caption: "Systems foundation" },
 ];

@@ -1,3 +1,5 @@
+"use client";
+
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
 import { socialLinks } from "@/modules/shared/data/socials";
 
@@ -10,7 +12,7 @@ const iconMap = {
 
 export const FooterConnect = () => {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-4">
       <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
         Connect with me
       </p>
@@ -24,7 +26,21 @@ export const FooterConnect = () => {
               target="_blank"
               rel="noreferrer"
               aria-label={s.label}
-              className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/30 text-muted-foreground transition-all hover:text-[hsl(var(--accent-mint))] hover:border-[hsl(var(--accent-mint)/0.5)]"
+              className="group inline-flex h-9 w-9 items-center justify-center rounded-xl glass transition-all hover:scale-110"
+              style={{}}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor =
+                  "hsl(var(--accent-primary)/0.6)";
+                (e.currentTarget as HTMLElement).style.color =
+                  "hsl(var(--accent-primary))";
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  "0 0 14px hsl(var(--accent-primary)/0.3)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "";
+                (e.currentTarget as HTMLElement).style.color = "";
+                (e.currentTarget as HTMLElement).style.boxShadow = "";
+              }}
             >
               <Icon size={14} strokeWidth={1.6} />
             </a>
@@ -33,7 +49,7 @@ export const FooterConnect = () => {
       </div>
       <a
         href="mailto:shakilahmmed8882@gmail.com"
-        className="text-xs text-muted-foreground hover:text-foreground transition-colors w-fit"
+        className="text-xs text-muted-foreground transition-colors hover:text-[hsl(var(--accent-primary))] w-fit"
       >
         shakilahmmed8882@gmail.com
       </a>

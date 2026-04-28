@@ -1,18 +1,28 @@
+import { Code2 } from "lucide-react";
+
 export const FooterBrand = () => {
   return (
-    <div className="flex flex-col gap-3 max-w-xs">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-4 max-w-xs">
+      <div className="flex items-center gap-2.5">
         <span
-          className="inline-block h-2 w-2 rounded-full bg-[hsl(var(--accent-mint))]"
-          style={{ boxShadow: "0 0 10px hsl(var(--accent-mint) / 0.7)" }}
-        />
-        <span className="font-display text-base font-semibold tracking-tight">
+          className="flex h-7 w-7 items-center justify-center rounded-lg"
+          style={{
+            background: "hsl(var(--accent-primary))",
+            boxShadow: "0 0 14px hsl(var(--accent-primary)/0.5)",
+          }}
+        >
+          <Code2 size={14} className="text-white" />
+        </span>
+        <span className="font-display text-base font-bold tracking-tight">
           Shakil Ahmmed
         </span>
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        Web developer with 4+ years of experience crafting scalable, performant
-        applications.
+        Web developer with{" "}
+        <span style={{ color: "hsl(var(--accent-primary))" }} className="font-medium">
+          4+ years
+        </span>{" "}
+        of experience crafting scalable, performant applications across the full stack.
       </p>
     </div>
   );

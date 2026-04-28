@@ -18,29 +18,32 @@ export const SectionHeader = (props: Props) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.35 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={cn("flex flex-col gap-3", alignment, className)}
     >
-      {eyebrow ? (
+      {eyebrow && (
         <span className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
           <span
-            className="inline-block h-1 w-1 rounded-full bg-[hsl(var(--accent-mint))]"
-            style={{ boxShadow: "0 0 6px hsl(var(--accent-mint) / 0.8)" }}
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{
+              background: "hsl(var(--accent-primary))",
+              boxShadow: "0 0 8px hsl(var(--accent-primary)/0.9)",
+            }}
           />
           {eyebrow}
         </span>
-      ) : null}
-      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
+      )}
+      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
         {title}
       </h2>
-      {subtitle ? (
-        <p className="max-w-xl text-sm md:text-base text-muted-foreground">
+      {subtitle && (
+        <p className="max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
           {subtitle}
         </p>
-      ) : null}
+      )}
     </motion.div>
   );
 };

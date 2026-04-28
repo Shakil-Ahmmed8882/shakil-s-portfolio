@@ -17,7 +17,7 @@ export const FooterQuickLinks = () => {
           <a
             key={l.id}
             href={`#${l.id}`}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
+            className="text-sm text-muted-foreground w-fit transition-colors hover:text-[hsl(var(--accent-primary))]"
           >
             {l.label}
           </a>

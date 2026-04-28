@@ -21,7 +21,8 @@ export const AboutStat = (props: Props) => {
       <span className="font-display text-3xl md:text-4xl font-semibold tracking-tight">
         {value}
         <span
-          className="ml-1 text-[hsl(var(--accent-mint))]"
+          className="ml-1"
+          style={{ color: "hsl(var(--accent-primary))" }}
           aria-hidden
         >
           ·

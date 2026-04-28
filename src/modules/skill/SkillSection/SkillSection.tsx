@@ -1,4 +1,4 @@
-import { Section } from "@/modules/shared/ui/Section";
+import { ParallaxSection } from "@/modules/shared/ui/ParallaxSection";
 import { SectionHeader } from "@/modules/shared/ui/SectionHeader";
 import { SkillRow } from "./SkillRow";
 import { SkillGroupSummary } from "./SkillGroupSummary";
@@ -11,14 +11,14 @@ export const SkillSection = () => {
   }, {});
 
   return (
-    <Section id="skills">
+    <ParallaxSection id="skills" variant="accent">
       <SectionHeader
         eyebrow="02 — Stack"
         title="Tools I reach for."
         subtitle="A focused set — modern, performant, production-tested."
       />
 
-      <div className="mt-14 grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+      <div className="mt-14 grid lg:grid-cols-[260px_1fr] gap-12 lg:gap-16">
         <aside className="lg:sticky lg:top-28 self-start">
           <div className="glass-card rounded-2xl p-5">
             <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">
@@ -43,6 +43,6 @@ export const SkillSection = () => {
           ))}
         </div>
       </div>
-    </Section>
+    </ParallaxSection>
   );
 };

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore – CSS side-effect import, resolved by Next.js
+import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/modules/shared/theme/ThemeProvider";
 import { SmoothScrollProvider } from "@/modules/shared/scroll/SmoothScrollProvider";
-import { BackgroundField } from "@/modules/shared/background/BackgroundField";
+import { BackgroundSceneLoader } from "@/modules/shared/background/BackgroundSceneLoader";
 import { SocialBar } from "@/modules/shared/components/SocialBar";
+import { PageCurtain } from "@/modules/shared/effects/PageCurtain";
+import { ClickRipple } from "@/modules/shared/effects/ClickRipple";
 import { Toaster } from "sonner";
-import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,18 +24,15 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Shakil's Portfolio",
+  title: "Shakil Ahmmed — Web Developer",
   description:
     "Full-stack developer with 4+ years experience building scalable, performant web applications.",
 };
 
-type Props = {
-  children: React.ReactNode;
-};
+type Props = { children: React.ReactNode };
 
 export default function RootLayout(props: Props) {
   const { children } = props;
-
   return (
     <html
       lang="en"
@@ -41,8 +42,10 @@ export default function RootLayout(props: Props) {
       <body className="font-sans">
         <ThemeProvider>
           <SmoothScrollProvider>
-            <BackgroundField />
+            <PageCurtain />
+            <BackgroundSceneLoader />
             <SocialBar />
+            <ClickRipple />
             {children}
             <Toaster position="bottom-right" theme="system" />
           </SmoothScrollProvider>
