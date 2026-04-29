@@ -83,23 +83,33 @@ export const ProfileSidebar = () => {
       </div>
     </div>
 
-    {/* ── Bold Points ── */}
-    <ul className="flex flex-col gap-4">
-      {boldPoints.map((pt) => (
-        <li key={pt.label}>
+    {/* ── Highlights ── */}
+    <ul className="flex flex-col border-y border-border/40">
+      {boldPoints.map((pt, i) => (
+        <li
+          key={pt.label}
+          className="border-b border-border/30 last:border-b-0"
+        >
           <button
             type="button"
             onClick={() => {
               if (pt.isProblemSolver) setSolverOpen(true);
               else if (pt.targetId) scrollTo(pt.targetId);
             }}
-            className="group w-full text-left text-sm font-semibold leading-snug text-foreground/90 transition-colors hover:text-[hsl(var(--accent-primary))] flex items-start gap-3"
+            className="group w-full flex items-baseline gap-4 py-3 text-left transition-colors"
           >
+            <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/60 tabular-nums shrink-0 transition-colors group-hover:text-[hsl(var(--accent-primary))]">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="flex-1 text-[13px] leading-snug text-foreground/85 transition-colors group-hover:text-foreground">
+              {pt.label}
+            </span>
             <span
-              className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full transition-all group-hover:scale-150"
-              style={{ background: "hsl(var(--accent-primary))" }}
-            />
-            <span>{pt.label}</span>
+              aria-hidden
+              className="font-mono text-xs text-muted-foreground/40 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent-primary))]"
+            >
+              →
+            </span>
           </button>
         </li>
       ))}

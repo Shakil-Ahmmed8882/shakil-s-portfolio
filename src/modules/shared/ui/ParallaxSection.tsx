@@ -68,27 +68,26 @@ export const ParallaxSection = (props: Props) => {
     return () => ctx.revert();
   }, [yOffset]);
 
-  return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className={cn(
-        "relative w-full py-28  scroll-mt-24 ",
-        className
-      )}
-    >
-      {ghostTitle && (
-        <span
-          aria-hidden
-          className="pointer-events-none select-none absolute inset-x-0 -top-0  font-display font-black uppercase whitespace-nowrap leading-none  text-foreground/[0.04] dark:text-foreground/[0.05]"
-          style={{
-            fontSize: "clamp(8rem, 15vw, 15rem)",
-            filter: "blur(2px)",
-          }}
-        >
-          {ghostTitle}
-        </span>
-      )}
+  return (<section
+  ref={sectionRef}
+  id={id}
+  className={cn(
+    "relative w-full py-28 z-[10] scroll-mt-24",
+    className
+  )}
+>
+      <span
+  aria-hidden
+  className="pointer-events-none select-none absolute inset-x-0 top-0 z-[20]
+    font-display font-black uppercase whitespace-nowrap leading-none
+    text-foreground/[0.04] dark:text-foreground/[0.05]"
+  style={{
+    fontSize: "clamp(8rem, 15vw, 15rem)",
+    filter: "blur(2px)",
+  }}
+>
+  {ghostTitle}
+</span>
       <div ref={innerRef} className=" relative opacity-0">
         {children}
       </div>

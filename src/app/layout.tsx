@@ -5,9 +5,10 @@ import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/modules/shared/theme/ThemeProvider";
 import { SmoothScrollProvider } from "@/modules/shared/scroll/SmoothScrollProvider";
-import { BackgroundSceneLoader } from "@/modules/shared/background/BackgroundSceneLoader";
+import { AmbientScene } from "@/modules/shared/background/AmbientScene";
 import { SocialBar } from "@/modules/shared/components/SocialBar";
 import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
+import { AmbientMusicToggle } from "@/modules/shared/components/AmbientMusicToggle";
 import { PageCurtain } from "@/modules/shared/effects/PageCurtain";
 import { ClickRipple } from "@/modules/shared/effects/ClickRipple";
 import { Toaster } from "sonner";
@@ -44,10 +45,10 @@ export default function RootLayout(props: Props) {
         <ThemeProvider>
           <SmoothScrollProvider>
             <PageCurtain />
-            {/* <BackgroundSceneLoader /> */}
+            <AmbientScene />
             <SocialBar />
             <ClickRipple />
-            {children}
+            <div className="relative z-10">{children}</div>
             <Toaster position="bottom-right" theme="system" />
           </SmoothScrollProvider>
         </ThemeProvider>

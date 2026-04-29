@@ -1,13 +1,14 @@
-import { HeroHeading } from "./HeroHeading";
 import { HeroCTA } from "./HeroCTA";
+import { HeroHeading } from "./HeroHeading";
+
 
 export const HeroSection = () => {
   return (
     <section
-      id="home"
-      className="relative  flex items-center py-28 scroll-mt-24 overflow-hidden"
+      
+      className="relative flex items-center py-28 scroll-mt-24"
     >
-      {/* subtle radial spot behind hero */}
+      {/* subtle radial spot behind hero — sits above the global ambient scene */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full blur-[120px] opacity-20"
