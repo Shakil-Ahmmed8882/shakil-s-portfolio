@@ -26,7 +26,7 @@ export const NavbarContent = () => {
         scrolled ? "py-2" : "py-4"
       )}
     >
-      <div className="container">
+      <div className="xl:max-w-[1440px] mx-auto">
         <div
           className={cn(
             "flex items-center justify-between rounded-full px-4 md:px-5 transition-all duration-300",

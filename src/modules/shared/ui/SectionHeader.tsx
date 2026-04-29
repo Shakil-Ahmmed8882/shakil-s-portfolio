@@ -36,11 +36,11 @@ export const SectionHeader = (props: Props) => {
           {eyebrow}
         </span>
       )}
-      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+      <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
         {title}
       </h2>
       {subtitle && (
-        <p className="max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
+        <p className="max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
           {subtitle}
         </p>
       )}

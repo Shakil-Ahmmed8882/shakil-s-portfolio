@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Award } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { TCertificate } from "../data/experiences";
 
 type Props = { certificate: TCertificate; index: number };
@@ -21,13 +22,19 @@ export const CertificateCard = (props: Props) => {
       className="group glass-card rounded-xl p-4 flex items-start gap-4"
     >
       <div
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
+        className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border transition-transform group-hover:scale-110"
         style={{
-          background: "hsl(var(--accent-primary)/0.12)",
-          border: "1px solid hsl(var(--accent-primary)/0.25)",
+          borderColor: "hsl(var(--accent-primary)/0.25)",
+          background: "hsl(var(--background)/0.6)",
         }}
       >
-        <Award size={16} style={{ color: "hsl(var(--accent-primary))" }} />
+        <Image
+          src={certificate.logo}
+          alt={certificate.title}
+          fill
+          sizes="44px"
+          className="object-contain p-1"
+        />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2">

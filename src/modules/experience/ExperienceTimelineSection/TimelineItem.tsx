@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, FileText, Briefcase } from "lucide-react";
 import type { TExperience } from "../data/experiences";
@@ -14,31 +15,44 @@ export const TimelineItem = (props: Props) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.55, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
-      className="relative pl-10 pb-10 last:pb-0"
+      className="relative pl-12 pb-10 last:pb-0"
     >
-      {/* dot */}
+      {/* logo / dot */}
       <span
-        className="absolute left-0 top-2 flex h-5 w-5 items-center justify-center rounded-full"
+        className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-xl overflow-hidden border"
         style={{
-          background: experience.isCurrent
+          background: experience.logo
+            ? "hsl(var(--background)/0.7)"
+            : experience.isCurrent
             ? "hsl(var(--accent-primary))"
             : "hsl(var(--border))",
+          borderColor: "hsl(var(--accent-primary)/0.35)",
           boxShadow: experience.isCurrent
-            ? "0 0 0 4px hsl(var(--accent-primary)/0.15), 0 0 14px hsl(var(--accent-primary)/0.5)"
+            ? "0 0 0 4px hsl(var(--accent-primary)/0.12), 0 0 14px hsl(var(--accent-primary)/0.4)"
             : "none",
         }}
       >
-        <Briefcase size={10} className="text-white/80" />
+        {experience.logo ? (
+          <Image
+            src={experience.logo}
+            alt={experience.company}
+            fill
+            sizes="32px"
+            className="object-contain p-1"
+          />
+        ) : (
+          <Briefcase size={12} className="text-white/80" />
+        )}
       </span>
 
       {/* line */}
       {!isLast && (
-        <span className="absolute left-[9px] top-7 bottom-0 w-px bg-gradient-to-b from-border/60 to-transparent" />
+        <span className="absolute left-4 top-10 bottom-0 w-px bg-gradient-to-b from-border/60 to-transparent" />
       )}
 
       {/* header */}
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-        <h3 className="font-display text-base font-semibold">{experience.role}</h3>
+        <h3 className="font-display text-lg font-semibold text-foreground">{experience.role}</h3>
         <span className="text-muted-foreground">·</span>
         <span className="text-sm font-medium" style={{ color: "hsl(var(--accent-primary))" }}>
           {experience.company}
@@ -62,10 +76,13 @@ export const TimelineItem = (props: Props) => {
       <p className="mt-1 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
         {experience.period}
       </p>
-      <ul className="mt-3 flex flex-col gap-1">
+      <ul className="mt-3 flex flex-col gap-1.5">
         {experience.highlights.map((h) => (
-          <li key={h} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full" style={{ background: "hsl(var(--accent-primary)/0.6)" }} />
+          <li key={h} className="flex items-start gap-2 text-sm text-foreground/75">
+            <span
+              className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
+              style={{ background: "hsl(var(--accent-primary)/0.7)" }}
+            />
             {h}
           </li>
         ))}

@@ -13,7 +13,7 @@ import { Code2 } from "lucide-react";
 
 export const ExperienceTimelineSection = () => {
   return (
-    <ParallaxSection id="experience" variant="tinted">
+    <ParallaxSection id="experience" variant="tinted" ghostTitle="Experience">
       <SectionHeader
         eyebrow="03 — Track Record"
         title="Experience & milestones."

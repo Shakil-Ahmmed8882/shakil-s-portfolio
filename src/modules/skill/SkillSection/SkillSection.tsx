@@ -11,7 +11,7 @@ export const SkillSection = () => {
   }, {});
 
   return (
-    <ParallaxSection id="skills" variant="accent">
+    <ParallaxSection id="skills" ghostTitle="Skills">
       <SectionHeader
         eyebrow="02 — Stack"
         title="Tools I reach for."

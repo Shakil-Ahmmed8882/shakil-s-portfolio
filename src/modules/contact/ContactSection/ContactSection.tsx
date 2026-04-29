@@ -5,7 +5,7 @@ import { Mail, MessageSquare } from "lucide-react";
 
 export const ContactSection = () => {
   return (
-    <ParallaxSection id="contact" variant="tinted">
+    <ParallaxSection id="contact" variant="tinted" ghostTitle="Contact">
       <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
         <div className="flex flex-col gap-8">
           <SectionHeader

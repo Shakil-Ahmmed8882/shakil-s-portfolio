@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/modules/shared/theme/ThemeProvider";
 import { SmoothScrollProvider } from "@/modules/shared/scroll/SmoothScrollProvider";
 import { BackgroundSceneLoader } from "@/modules/shared/background/BackgroundSceneLoader";
 import { SocialBar } from "@/modules/shared/components/SocialBar";
+import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
 import { PageCurtain } from "@/modules/shared/effects/PageCurtain";
 import { ClickRipple } from "@/modules/shared/effects/ClickRipple";
 import { Toaster } from "sonner";
@@ -43,7 +44,7 @@ export default function RootLayout(props: Props) {
         <ThemeProvider>
           <SmoothScrollProvider>
             <PageCurtain />
-            <BackgroundSceneLoader />
+            {/* <BackgroundSceneLoader /> */}
             <SocialBar />
             <ClickRipple />
             {children}

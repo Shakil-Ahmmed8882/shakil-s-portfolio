@@ -46,7 +46,7 @@ export const HeroHeading = () => {
           </span>
         </span>
         <span className="block overflow-hidden">
-          <span className="hero-line block text-muted-foreground/30">
+          <span className="hero-line block text-muted-foreground  ">
             DEVELOPER
           </span>
         </span>

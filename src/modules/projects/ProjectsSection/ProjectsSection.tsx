@@ -5,7 +5,7 @@ import { projects } from "../data/projects";
 
 export const ProjectsSection = () => {
   return (
-    <ParallaxSection id="projects" variant="accent">
+    <ParallaxSection id="projects" variant="accent" ghostTitle="Projects">
       <SectionHeader
         eyebrow="04 — Selected Work"
         title="Projects worth a look."

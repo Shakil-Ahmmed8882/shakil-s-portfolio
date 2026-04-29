@@ -58,7 +58,7 @@
     --secondary:          var(--bg-h) var(--bg-s) calc(var(--bg-l) + 6%);
     --secondary-foreground: 0 0% 88%;
     --muted:              var(--bg-h) var(--bg-s) calc(var(--bg-l) + 5%);
-    --muted-foreground:   0 0% 48%;
+    --muted-foreground:   0 0% 62%;
     --accent:             var(--bg-h) var(--bg-s) calc(var(--bg-l) + 7%);
     --accent-foreground:  0 0% 90%;
     --border:             var(--bg-h) var(--bg-s) calc(var(--bg-l) + 10%);
@@ -75,6 +75,7 @@
     scrollbar-gutter: stable;
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted-foreground) / 0.18) transparent;
+    font-size: 17px;
   }
 
   ::-webkit-scrollbar        { width: 4px; height: 4px; }
@@ -149,26 +150,58 @@ html.lenis, html.lenis body { height: auto; }
     background-size: 24px 24px;
   }
 
-  /* ── Section backgrounds — clean gradient bands, no blur ── */
+  /* ── Section backgrounds — soft gradient seams, no hard fill,
+     letting the global grid scene show through (inspiration.jpeg vibe) ── */
   .section-tinted {
-    background: linear-gradient(180deg,
-      transparent                              0%,
-      hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 3%)) 12%,
-      hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 3%)) 88%,
-      transparent                              100%
-    );
+    background:
+      linear-gradient(180deg,
+        transparent 0%,
+        hsl(var(--accent-primary)/0.025) 8%,
+        transparent 18%,
+        transparent 82%,
+        hsl(var(--accent-primary)/0.02) 92%,
+        transparent 100%);
+  }
+
+  .section-tinted::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent-primary)/0.45) 50%,
+      transparent 100%);
+    opacity: 0.4;
+    pointer-events: none;
   }
 
   .section-accent {
     background:
-      radial-gradient(ellipse 60% 55% at 15% 50%, hsl(var(--accent-primary) / 0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 45% at 85% 60%, hsl(var(--accent-primary) / 0.04) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 55% at 15% 50%, hsl(var(--accent-primary) / 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 45% at 85% 60%, hsl(var(--accent-primary) / 0.05) 0%, transparent 65%),
       linear-gradient(180deg,
-        transparent                              0%,
-        hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 4%)) 12%,
-        hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 4%)) 88%,
-        transparent                              100%
-      );
+        transparent 0%,
+        hsl(var(--accent-primary)/0.03) 10%,
+        transparent 22%,
+        transparent 78%,
+        hsl(var(--accent-primary)/0.025) 90%,
+        transparent 100%);
+  }
+
+  .section-accent::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent-primary)/0.55) 50%,
+      transparent 100%);
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   /* ── Perspective helpers ────────────────────────────── */

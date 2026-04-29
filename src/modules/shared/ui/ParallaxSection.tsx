@@ -17,16 +17,13 @@ type Props = {
   yOffset?: number;
   /* "plain" = transparent (hero-like), "tinted" = subtle surface bg, "accent" = accent-glow gradient */
   variant?: "plain" | "tinted" | "accent";
+  /* large background watermark word — cinematic, ultra-low opacity */
+  ghostTitle?: string;
 };
 
-const variantStyles: Record<NonNullable<Props["variant"]>, string> = {
-  plain: "",
-  tinted: "section-tinted",
-  accent: "section-accent",
-};
 
 export const ParallaxSection = (props: Props) => {
-  const { id, children, className, yOffset = 40, variant = "plain" } = props;
+  const { id, children, className, yOffset = 40, ghostTitle } = props;
   const sectionRef = useRef<HTMLElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
 
@@ -76,12 +73,23 @@ export const ParallaxSection = (props: Props) => {
       ref={sectionRef}
       id={id}
       className={cn(
-        "relative w-full py-24 md:py-32 scroll-mt-24 overflow-hidden",
-        variantStyles[variant],
+        "relative w-full py-28  scroll-mt-24 ",
         className
       )}
     >
-      <div ref={innerRef} className="container opacity-0">
+      {ghostTitle && (
+        <span
+          aria-hidden
+          className="pointer-events-none select-none absolute inset-x-0 -top-0  font-display font-black uppercase whitespace-nowrap leading-none  text-foreground/[0.04] dark:text-foreground/[0.05]"
+          style={{
+            fontSize: "clamp(8rem, 15vw, 15rem)",
+            filter: "blur(2px)",
+          }}
+        >
+          {ghostTitle}
+        </span>
+      )}
+      <div ref={innerRef} className=" relative opacity-0">
         {children}
       </div>
     </section>

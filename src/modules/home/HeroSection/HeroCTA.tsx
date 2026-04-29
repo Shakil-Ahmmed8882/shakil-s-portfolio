@@ -7,9 +7,9 @@ export const HeroCTA = () => {
     <div className="flex flex-wrap gap-3">
       <a
         href="#projects"
-        className="hero-cta inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_30px_-6px_hsl(var(--accent-primary)/0.6)]"
+        className="hero-cta inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_30px_-6px_hsl(var(--accent-primary)/0.6)]"
         style={{
-          background: "hsl(var(--accent-primary))",
+          background: "#fff",
           boxShadow: "0 4px 20px -4px hsl(var(--accent-primary)/0.5)",
         }}
       >

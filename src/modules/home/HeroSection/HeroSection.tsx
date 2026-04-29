@@ -1,12 +1,11 @@
 import { HeroHeading } from "./HeroHeading";
 import { HeroCTA } from "./HeroCTA";
-import { HeroPortrait } from "./HeroPortrait";
 
 export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex items-center pt-28 pb-20 scroll-mt-24 overflow-hidden"
+      className="relative  flex items-center py-28 scroll-mt-24 overflow-hidden"
     >
       {/* subtle radial spot behind hero */}
       <div
@@ -21,9 +20,7 @@ export const HeroSection = () => {
             <HeroHeading />
             <HeroCTA />
           </div>
-          <div className="order-first lg:order-last flex items-center justify-center">
-            <HeroPortrait />
-          </div>
+          
         </div>
       </div>
     </section>

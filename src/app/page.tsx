@@ -5,17 +5,23 @@ import { ExperienceLayout } from "@/modules/experience/ExperienceLayout";
 import { ProjectsLayout } from "@/modules/projects/ProjectsLayout";
 import { ContactLayout } from "@/modules/contact/ContactLayout";
 import { FooterLayout } from "@/modules/footer/FooterLayout";
+import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
 
 export default function Page() {
   return (
-    <main className="relative">
+    <main className="">
+      <div className=" mx-auto xl:flex xl:gap-10 xl:max-w-[1440px] xl:px-6">
       <NavbarLayout />
-      <HomeLayout />
-      <SkillLayout />
-      <ExperienceLayout />
-      <ProjectsLayout />
-      <ContactLayout />
-      <FooterLayout />
+        <ProfileSidebar />
+        <div className=" flex-1">
+          <HomeLayout />
+          <SkillLayout />
+          <ExperienceLayout />
+          <ProjectsLayout />
+          <ContactLayout />
+          <FooterLayout />
+        </div>
+      </div>
     </main>
   );
 }

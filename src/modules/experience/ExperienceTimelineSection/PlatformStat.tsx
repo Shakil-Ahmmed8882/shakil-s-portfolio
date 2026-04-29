@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Trophy } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { TPlatformStat } from "../data/experiences";
 
 type Props = { stat: TPlatformStat; index: number };
@@ -21,8 +22,19 @@ export const PlatformStat = (props: Props) => {
       className="group glass-card rounded-xl p-4 flex flex-col gap-2 perspective"
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
-          <Trophy size={12} style={{ color: "hsl(var(--accent-primary))" }} />
+        <div className="flex items-center gap-2">
+          <div
+            className="relative h-7 w-7 overflow-hidden rounded-md"
+            style={{ background: "hsl(var(--background)/0.55)" }}
+          >
+            <Image
+              src={stat.logo}
+              alt={stat.name}
+              fill
+              sizes="28px"
+              className="object-contain p-0.5"
+            />
+          </div>
           <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
             {stat.name}
           </span>
