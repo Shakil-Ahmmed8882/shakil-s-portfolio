@@ -270,17 +270,28 @@ export const Manifesto = () => {
           <div className="flex flex-col gap-4">
             <Label>{t.qualificationThreeLabel}</Label>
             <p>{t.qualificationThree}</p>
-            <div className="leading-loose">
-              <Linker url="https://phitron.io/">{t.learningPhitron}</Linker>
-            </div>
-            <div className="leading-loose">
+            {/* Line 1: only "Phitron Machine Learning" is linked, rest is plain text */}
+            <p className="leading-loose">
+              <Linker url="https://phitron.io/">Phitron Machine Learning</Linker>
+              {" (3rd semester, after completing Data Structures, Algorithms & Problem Solving Club)"}
+            </p>
+            {/* Line 2: "Next-Level AI-driven Software Engineering Bootcamp" is linked, "and" is plain, "Anthropic academic courses" is linked */}
+            <p className="leading-loose">
               <Linker url="https://next.programming-hero.com/">
-                {t.learningBootcamp}
+                Next-Level AI-driven Software Engineering Bootcamp
               </Linker>
-            </div>
-            <div className="leading-loose">
-              <Linker url="https://fahimabdullah.com/">{t.learningFocus}</Linker>
-            </div>
+              {" and "}
+              <Linker url="https://www.anthropic.com/education">
+                Anthropic academic courses
+              </Linker>
+              {" for deeper LLM understanding"}
+            </p>
+            {/* Line 3: whole line plain, only "Fahim Abdullah" is linked */}
+            <p className="leading-loose">
+              {"Deep focus study sessions by "}
+              <Linker url="https://www.youtube.com/@fahimabdullah">Fahim Abdullah</Linker>
+              {" to learn complex things faster."}
+            </p>
           </div>
         </Item>
       </div>

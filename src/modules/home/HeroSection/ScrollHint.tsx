@@ -132,7 +132,7 @@ export const ScrollHint = ({ heroRef }: { heroRef: React.RefObject<HTMLElement |
     <div
       ref={wrapRef}
       aria-hidden
-      className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-[6px] select-none z-20"
+      className="pointer-events-none hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-[6px] select-none z-20"
     >
       {/* capsule border */}
       <div
