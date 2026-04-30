@@ -21,7 +21,6 @@ type Props = {
   ghostTitle?: string;
 };
 
-
 export const ParallaxSection = (props: Props) => {
   const { id, children, className, yOffset = 40, ghostTitle } = props;
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,7 +44,7 @@ export const ParallaxSection = (props: Props) => {
             end: "top 20%",
             scrub: 1.2,
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -61,34 +60,34 @@ export const ParallaxSection = (props: Props) => {
             toggleActions: "play none none none",
             once: true,
           },
-        }
+        },
       );
     });
 
     return () => ctx.revert();
   }, [yOffset]);
 
-  return (<section
-  ref={sectionRef}
-  id={id}
-  className={cn(
-    "relative w-full py-24 z-[10] scroll-mt-24",
-    className
-  )}
->
+  return (
+    <section
+      ref={sectionRef}
+      id={id}
+      className={cn("relative w-full py-12 md:py-24 z-[10] scroll-mt-24 overflow-hidden", className)}
+    >
       <span
-  aria-hidden
-  className="pointer-events-none select-none absolute inset-x-0 top-0 z-[20]
+        aria-hidden
+        className="pointer-events-none select-none absolute inset-x-0 top-[-0.3em] z-[20]
     font-display font-black uppercase whitespace-nowrap leading-none
-    text-foreground/[0.04] dark:text-foreground/[0.05]"
-  style={{
-    fontSize: "clamp(8rem, 15vw, 15rem)",
-    filter: "blur(2px)",
-  }}
->
-  {ghostTitle}
-</span>
-      <div ref={innerRef} className=" relative opacity-0">
+    text-foreground/[0.04] hidden md:block dark:text-foreground/[0.05] text-center overflow-hidden"
+        style={{
+          fontSize: "clamp(8rem, 15vw, 15rem)",
+          filter: "blur(2px)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+      >
+        {ghostTitle}
+      </span>
+      <div ref={innerRef} className="relative opacity-0 px-3 md:px-0">
         {children}
       </div>
     </section>

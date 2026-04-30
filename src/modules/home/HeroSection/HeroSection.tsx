@@ -71,7 +71,7 @@ export const HeroSection = () => {
     <section
       id="home"
       ref={rootRef}
-      className="relative min-h-[88vh] flex items-center pt-32 pb-20 scroll-mt-24"
+      className="relative flex items-center pt-24 pb-12 md:pt-32 md:pb-20 scroll-mt-24 overflow-hidden"
     >
       {/* soft accent spotlight */}
       <div
@@ -84,7 +84,7 @@ export const HeroSection = () => {
       />
       <ScrollHint heroRef={rootRef} />
 
-      <div className="container relative z-10">
+      <div className="relative z-10 px-3 md:px-6 lg:container">
         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-end">
           {/* ── LEFT: identity + title + ctas ─────────────── */}
           <div className="flex flex-col gap-8">

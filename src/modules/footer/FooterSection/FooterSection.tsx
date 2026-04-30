@@ -15,7 +15,7 @@ export const FooterSection = () => {
             "linear-gradient(90deg, transparent, hsl(var(--accent-primary)/0.5), transparent)",
         }}
       />
-      <div className="container py-14">
+      <div className="px-3 md:px-6 lg:container py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <FooterBrand />
           <FooterQuickLinks />

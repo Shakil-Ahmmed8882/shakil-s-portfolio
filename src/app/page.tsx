@@ -9,11 +9,11 @@ import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
 
 export default function Page() {
   return (
-    <main className="">
-      <div className=" mx-auto xl:flex xl:gap-10 xl:max-w-[1440px] xl:px-6">
+    <main className="overflow-x-hidden">
+      <div className="mx-auto xl:flex xl:gap-10 xl:max-w-[1440px] xl:px-6">
       <NavbarLayout />
         <ProfileSidebar />
-        <div className=" flex-1">
+        <div className="flex-1 min-w-0">
           <HomeLayout />
           <SkillLayout />
           <ExperienceLayout />
