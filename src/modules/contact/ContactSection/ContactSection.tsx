@@ -1,21 +1,25 @@
 import { ParallaxSection } from "@/modules/shared/ui/ParallaxSection";
 import { SectionHeader } from "@/modules/shared/ui/SectionHeader";
 import { ContactForm } from "./ContactForm";
-import { Mail, MessageSquare } from "lucide-react";
+import { Mail } from "lucide-react";
+import { CONTACT_EMAIL } from "@/modules/shared/data/socials";
+import { content } from "@/config/content";
 
 export const ContactSection = () => {
+  const t = content.contact;
+
   return (
-    <ParallaxSection id="contact" variant="tinted" ghostTitle="Contact">
+    <ParallaxSection id="contact" variant="tinted" ghostTitle={content.ghost.contact}>
       <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
         <div className="flex flex-col gap-8">
           <SectionHeader
-            eyebrow="05 — Contact"
-            title="Let's build something."
-            subtitle="Open to freelance work and full-time roles. I read every message."
+            eyebrow={t.eyebrow}
+            title={t.title}
+            subtitle={t.subtitle}
           />
           <div className="flex flex-col gap-3">
             <a
-              href="mailto:shakilahmmed8882@gmail.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="group inline-flex items-center gap-3 glass-card rounded-xl px-4 py-3 transition-all hover:border-[hsl(var(--accent-primary)/0.5)]"
             >
               <span
@@ -28,25 +32,12 @@ export const ContactSection = () => {
                 <Mail size={14} style={{ color: "hsl(var(--accent-primary))" }} />
               </span>
               <div>
-                <p className="text-[11px] text-muted-foreground uppercase tracking-widest font-mono">Email</p>
-                <p className="text-sm font-medium">shakilahmmed8882@gmail.com</p>
+                <p className="text-[11px] text-muted-foreground uppercase tracking-widest font-mono">
+                  {t.emailLabel}
+                </p>
+                <p className="text-sm font-medium">{CONTACT_EMAIL}</p>
               </div>
             </a>
-            <div className="group inline-flex items-center gap-3 glass-card rounded-xl px-4 py-3">
-              <span
-                className="flex h-8 w-8 items-center justify-center rounded-lg"
-                style={{
-                  background: "hsl(var(--accent-primary)/0.12)",
-                  border: "1px solid hsl(var(--accent-primary)/0.2)",
-                }}
-              >
-                <MessageSquare size={14} style={{ color: "hsl(var(--accent-primary))" }} />
-              </span>
-              <div>
-                <p className="text-[11px] text-muted-foreground uppercase tracking-widest font-mono">Response time</p>
-                <p className="text-sm font-medium">Usually within 24 hours</p>
-              </div>
-            </div>
           </div>
         </div>
 

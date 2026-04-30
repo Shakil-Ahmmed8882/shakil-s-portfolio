@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { useRef } from "react";
 import type { TProject } from "../data/projects";
+import { content } from "@/config/content";
 
 type Props = { project: TProject; index: number };
 
@@ -55,7 +56,16 @@ export const ProjectCard = (props: Props) => {
             background: "linear-gradient(135deg, hsl(var(--card)/0.8), hsl(var(--background)/0.5))",
           }}
         >
-          <div className="absolute inset-0 grid-pattern" />
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div className="absolute inset-0 grid-pattern" />
+          )}
           {/* accent glow in corner */}
           <div
             className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full blur-2xl opacity-40"
@@ -67,8 +77,8 @@ export const ProjectCard = (props: Props) => {
             <span className="h-2 w-2 rounded-full" style={{ background: "hsl(var(--accent-primary)/0.7)" }} />
           </div>
           <div className="absolute inset-x-3 bottom-3">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-              {String(index + 1).padStart(2, "0")} — case study
+            <span className="font-mono text-[10px] uppercase tracking-widest text-white/90 drop-shadow">
+              {String(index + 1).padStart(2, "0")} — {content.projects.caseStudyLabel}
             </span>
           </div>
         </div>
@@ -103,7 +113,7 @@ export const ProjectCard = (props: Props) => {
               className="inline-flex items-center gap-1 text-xs font-medium transition-colors hover:text-[hsl(var(--accent-primary))]"
             >
               <ExternalLink size={12} />
-              Live
+              {content.projects.liveLabel}
             </a>
           )}
           {project.repo && (
@@ -114,7 +124,7 @@ export const ProjectCard = (props: Props) => {
               className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github size={12} />
-              Repo
+              {content.projects.repoLabel}
             </a>
           )}
           <ArrowUpRight

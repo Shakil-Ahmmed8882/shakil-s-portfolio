@@ -1,7 +1,8 @@
 "use client";
 
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
-import { socialLinks } from "@/modules/shared/data/socials";
+import { socialLinks, CONTACT_EMAIL } from "@/modules/shared/data/socials";
+import { content } from "@/config/content";
 
 const iconMap = {
   github: Github,
@@ -14,7 +15,7 @@ export const FooterConnect = () => {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
-        Connect with me
+        {content.footer.connectLabel}
       </p>
       <div className="flex flex-wrap gap-2">
         {socialLinks.map((s) => {
@@ -48,10 +49,10 @@ export const FooterConnect = () => {
         })}
       </div>
       <a
-        href="mailto:shakilahmmed8882@gmail.com"
+        href={`mailto:${CONTACT_EMAIL}`}
         className="text-xs text-muted-foreground transition-colors hover:text-[hsl(var(--accent-primary))] w-fit"
       >
-        shakilahmmed8882@gmail.com
+        {CONTACT_EMAIL}
       </a>
     </div>
   );

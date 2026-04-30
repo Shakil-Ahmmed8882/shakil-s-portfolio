@@ -1,6 +1,10 @@
 import { Code2 } from "lucide-react";
+import { content } from "@/config/content";
 
 export const FooterBrand = () => {
+  const { tagline, yearsHighlight } = content.footer;
+  const parts = tagline.split(yearsHighlight);
+
   return (
     <div className="flex flex-col gap-4 max-w-xs">
       <div className="flex items-center gap-2.5">
@@ -14,15 +18,15 @@ export const FooterBrand = () => {
           <Code2 size={14} className="text-white" />
         </span>
         <span className="font-display text-base font-bold tracking-tight">
-          Shakil Ahmmed
+          {content.site.name}
         </span>
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        Web developer with{" "}
+        {parts[0]}
         <span style={{ color: "hsl(var(--accent-primary))" }} className="font-medium">
-          4+ years
-        </span>{" "}
-        of experience crafting scalable, performant applications across the full stack.
+          {yearsHighlight}
+        </span>
+        {parts[1]}
       </p>
     </div>
   );

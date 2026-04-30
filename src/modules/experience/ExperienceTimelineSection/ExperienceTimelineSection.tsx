@@ -10,21 +10,20 @@ import {
   totalProblemsSolved,
 } from "../data/experiences";
 import { Code2 } from "lucide-react";
+import { content } from "@/config/content";
 
 export const ExperienceTimelineSection = () => {
+  const t = content.experience;
+
   return (
-    <ParallaxSection id="experience" variant="tinted" ghostTitle="EX:">
-      <SectionHeader
-        eyebrow="03 — Track Record"
-        title="Experience & milestones."
-        subtitle="Three companies. One year at GKC IT. Consistent delivery."
-      />
+    <ParallaxSection id="experience" variant="tinted" ghostTitle={content.ghost.experience}>
+      <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
       <div className="mt-14 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20">
         {/* timeline */}
         <div>
           <p className="mb-8 text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
-            Timeline
+            {t.timeline.label}
           </p>
           <div>
             {experiences.map((e, i) => (
@@ -43,7 +42,7 @@ export const ExperienceTimelineSection = () => {
           {/* certs */}
           <div>
             <p className="mb-4 text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
-              Certificates
+              {t.certificates.label}
             </p>
             <div className="flex flex-col gap-3">
               {certificates.map((c, i) => (
@@ -57,7 +56,7 @@ export const ExperienceTimelineSection = () => {
             <div className="mb-4 flex items-center justify-between">
               <p className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
                 <Code2 size={12} style={{ color: "hsl(var(--accent-primary))" }} />
-                Competitive Programming
+                {t.cp.label}
               </p>
               <span className="text-xs text-muted-foreground">
                 <span
@@ -66,7 +65,7 @@ export const ExperienceTimelineSection = () => {
                 >
                   {totalProblemsSolved}+
                 </span>{" "}
-                solved
+                {t.cp.solvedSuffix}
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

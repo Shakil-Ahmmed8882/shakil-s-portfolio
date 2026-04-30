@@ -191,79 +191,17 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { content } from "@/config/content";
 
-/* -------------------------
-   LINK SYSTEM
---------------------------*/
-export const aboutLinks = {
-  meditation: {
-    label: "Meditation & Journaling",
-    url: "/meditation",
-  },
-  dsa: {
-    label: "Codeforces / CodeChef / LeetCode",
-    url: "/dsa",
-  },
-  ai: {
-    label: "Machine Learning",
-    url: "/ai-learning",
-  },
-  communication: {
-    label: "Communication Growth",
-    url: "/communication",
-  },
-  collaboration: {
-    label: "Collaboration Mindset",
-    url: "/collaboration",
-  },
-  space: {
-    label: "Space & Large Systems Thinking",
-    url: "/space",
-  },
-};
-
-/* -------------------------
-   HIGHLIGHT
---------------------------*/
-const Highlight = ({
-  id,
-  children,
-}: {
-  id: keyof typeof aboutLinks;
-  children?: React.ReactNode;
-}) => {
-  const item = aboutLinks[id];
-
-  return (
-    <Link
-      href={item.url}
-      className="font-medium text-primary underline decoration-muted-foreground/40 hover:decoration-primary transition"
-    >
-      {children || item.label}
-    </Link>
-  );
-};
-
-/* -------------------------
-   NUMBER BADGE
---------------------------*/
-const NumberBadge = ({ num }: { num: number }) => {
-  return (
-    <div className="relative w-10 h-10 flex items-center justify-center">
-      {/* animated gradient ring */}
-      <div className="absolute inset-0 rounded-full bg-[conic-gradient(var(--tw-gradient-stops))] from-primary via-[#cdcdcd] to-primary animate-spin-slow " />
-
-      {/* inner circle */}
-      <div className="relative w-9 h-9 rounded-full bg-background flex items-center justify-center text-sm font-semibold ">
-        {num}
-      </div>
+const NumberBadge = ({ num }: { num: number }) => (
+  <div className="relative w-10 h-10 flex items-center justify-center">
+    <div className="absolute inset-0 rounded-full bg-[conic-gradient(var(--tw-gradient-stops))] from-primary via-[#cdcdcd] to-primary animate-spin-slow" />
+    <div className="relative w-9 h-9 rounded-full bg-background flex items-center justify-center text-sm font-semibold">
+      {num}
     </div>
-  );
-};
+  </div>
+);
 
-/* -------------------------
-   ITEM
---------------------------*/
 const Item = ({
   num,
   children,
@@ -272,114 +210,80 @@ const Item = ({
   num: number;
   children: React.ReactNode;
   delay: number;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      className="flex items-start gap-4"
-    >
-      <NumberBadge num={num} />
-      <p className="text-muted-foreground  leading-8 text-[17px] md:text-[19px] max-w-[52ch]">
-        {children}
-      </p>
-    </motion.div>
-  );
-};
-
-/* -------------------------
-   MAIN
---------------------------*/
-export const Manifesto = () => {
-  return (
-    <div className="flex flex-col gap-10">
-      {/* Header */}
-      <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground flex items-center gap-2">
-        <span className="h-px w-8 bg-primary" />
-        01 — Who I Am
-      </span>
-
-      {/* Title */}
-      <h2 className="font-display text-4xl md:text-6xl font-semibold leading-loose tracking-tight">
-        My top <br />
-        <span className="text-primary">3 qualifications</span> includes :
-      </h2>
-
-      {/* Top 3 */}
-      <div className="flex flex-col gap-8">
-        <Item num={1} delay={0.1}>
-          <Highlight id="meditation">Communication & Collaboration</Highlight> :
-          Communicated with <span className="text-[#cbcbcb]">1,000+</span>{" "}
-          individuals across global platforms (Clubhouse, HelloTalk, Duolingo),
-          Worked across{" "}
-          <span className="text-[#cbcbcb]"> 3 companies, SCIC team </span>,
-          Projects' Clients and active developer networks
-        </Item>
-
-        <Item num={2} delay={0.2}>
-          <Highlight id="meditation">Problem Breakdown</Highlight>: I think on
-          paper. Decompose large features into smaller pieces. I strongly
-          believe clarity is the key.
-        </Item>
-
-        <Item num={3} delay={0.3}>
-          <div className="flex gap-4">
-            {/* Right: content */}
-            <div className="flex flex-col gap-4 text-muted-foreground text-[17px] md:text-[19px] leading-relaxed">
-              <Highlight id="meditation">Continuous Learning</Highlight>
-              My highg priority always is investing in myself <br /> to produce
-              high-quality output. Here is what in my list now:
-              {/* Branch 1 */}
-              <div className="leading-loose">
-                
-                    <Linker url="https://phitron.io/">
-                  Phitron Machine Learning
-                    </Linker>
-                (3rd semester, after completing Data Structures, Algorithms &
-                Problem Solving Club)
-              </div>
-              {/* Branch 2 */}
-              <div className="leading-loose">
-                  <Linker url="https://next.programming-hero.com/">
-                  Next-Level AI-driven Software Engineering Bootcamp </Linker> and <Linker url="https://www.anthropic.com/learn"> Anthropic academic courses</Linker> for deeper LLM understanding
-              </div>
-              {/* Branch 3 */}
-              <div className="leading-loose">
-                I follow deep focus study session by{" "}
-                <Linker url={"https://fahimabdullah.com/"}>
-                  Fahim Abdullah
-                </Linker>  to learn complex things faster.
-              </div>
-            </div>
-          </div>
-        </Item>
-      </div>
-
-      {/* <div className="h-px w-full bg-border" />
-
-      <div className="flex flex-col gap-6 max-w-[58ch] text-muted-foreground text-[17px] md:text-[19px] leading-relaxed">
-        <p>
-          I use <Highlight id="meditation" /> to stay focused and maintain
-          clarity while learning and solving problems.
-        </p>
-
-        
-      </div> */}
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 14 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    className="flex items-start gap-4"
+  >
+    <NumberBadge num={num} />
+    <div className="text-muted-foreground leading-8 text-[17px] md:text-[19px] max-w-[52ch]">
+      {children}
     </div>
-  );
-};
+  </motion.div>
+);
 
-type LinkedTextProps = {
-  url: string;
-  children: React.ReactNode;
-};
-const Linker = (props: LinkedTextProps) => (
+const Label = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-medium text-primary underline decoration-muted-foreground/40 hover:decoration-primary transition">
+    {children}
+  </span>
+);
+
+const Linker = (props: { url: string; children: React.ReactNode }) => (
   <Link
     className="text-primary opacity-80 underline-offset-8 underline"
     href={props.url}
+    target="_blank"
+    rel="noreferrer"
   >
     {props.children}
   </Link>
 );
+
+export const Manifesto = () => {
+  const t = content.about;
+
+  return (
+    <div className="flex flex-col gap-10">
+      <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground flex items-center gap-2">
+        <span className="h-px w-8 bg-primary" />
+        {t.eyebrow}
+      </span>
+
+      <h2 className="font-display text-4xl md:text-6xl font-semibold leading-loose tracking-tight">
+        {t.title} <br />
+        <span className="text-primary">{t.titleAccent}</span> {t.titleSuffix}
+      </h2>
+
+      <div className="flex flex-col gap-8">
+        <Item num={1} delay={0.1}>
+          <Label>{t.qualificationOneLabel}</Label> : {t.qualificationOne}
+        </Item>
+
+        <Item num={2} delay={0.2}>
+          <Label>{t.qualificationTwoLabel}</Label>: {t.qualificationTwo}
+        </Item>
+
+        <Item num={3} delay={0.3}>
+          <div className="flex flex-col gap-4">
+            <Label>{t.qualificationThreeLabel}</Label>
+            <p>{t.qualificationThree}</p>
+            <div className="leading-loose">
+              <Linker url="https://phitron.io/">{t.learningPhitron}</Linker>
+            </div>
+            <div className="leading-loose">
+              <Linker url="https://next.programming-hero.com/">
+                {t.learningBootcamp}
+              </Linker>
+            </div>
+            <div className="leading-loose">
+              <Linker url="https://fahimabdullah.com/">{t.learningFocus}</Linker>
+            </div>
+          </div>
+        </Item>
+      </div>
+    </div>
+  );
+};

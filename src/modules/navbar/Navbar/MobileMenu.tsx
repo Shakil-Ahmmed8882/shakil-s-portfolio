@@ -4,15 +4,9 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavbarSelector } from "./NavbarContext";
 import { ThemeToggle } from "@/modules/shared/components/ThemeToggle";
+import { content } from "@/config/content";
 
-const links = [
-  { id: "home",       label: "Home" },
-  { id: "about",      label: "About" },
-  { id: "skills",     label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects",   label: "Projects" },
-  { id: "contact",    label: "Contact" },
-];
+const links = content.navbar.links;
 
 export const MobileMenu = () => {
   const { open, setOpen, active } = useNavbarSelector();

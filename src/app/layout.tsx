@@ -7,11 +7,10 @@ import { ThemeProvider } from "@/modules/shared/theme/ThemeProvider";
 import { SmoothScrollProvider } from "@/modules/shared/scroll/SmoothScrollProvider";
 import { AmbientScene } from "@/modules/shared/background/AmbientScene";
 import { SocialBar } from "@/modules/shared/components/SocialBar";
-import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
-import { AmbientMusicToggle } from "@/modules/shared/components/AmbientMusicToggle";
-import { PageCurtain } from "@/modules/shared/effects/PageCurtain";
 import { ClickRipple } from "@/modules/shared/effects/ClickRipple";
+import { DynamicFavicon } from "@/modules/shared/components/DynamicFavicon";
 import { Toaster } from "sonner";
+import { content } from "@/config/content";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,9 +25,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Shakil Ahmmed — Web Developer",
-  description:
-    "Full-stack developer with 4+ years experience building scalable, performant web applications.",
+  title: content.site.metaTitle,
+  description: content.site.metaDescription,
 };
 
 type Props = { children: React.ReactNode };
@@ -43,8 +41,8 @@ export default function RootLayout(props: Props) {
     >
       <body className="font-sans">
         <ThemeProvider>
+          <DynamicFavicon />
           <SmoothScrollProvider>
-            <PageCurtain />
             <AmbientScene />
             <SocialBar />
             <ClickRipple />

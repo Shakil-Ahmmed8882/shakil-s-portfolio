@@ -21,10 +21,10 @@ export const experiences: TExperience[] = [
       "Architecting scalable Next.js applications",
       "Driving performance & DX initiatives",
     ],
-    document: {
-      label: "Contract Letter",
-      href: "https://drive.google.com/file/d/1JNev6H-oxd4XH_4-jBEhMqp-oLIe0nYg/view",
-    },
+    // document: {
+    //   label: "Contract Letter",
+    //   href: "https://drive.google.com/file/d/1JNev6H-oxd4XH_4-jBEhMqp-oLIe0nYg/view",
+    // },
   },
   {
     id: "cloudgen",

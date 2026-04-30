@@ -3,36 +3,33 @@
 import { cn } from "@/lib/utils";
 import { useNavbarSelector } from "./NavbarContext";
 import { NavLink } from "./NavLink";
-import { MoreDropdown } from "./MoreDropdown";
 import { MobileMenu } from "./MobileMenu";
 import { ThemeToggle } from "@/modules/shared/components/ThemeToggle";
-
-const links = [
-  { id: "home",       label: "Home" },
-  { id: "about",      label: "About" },
-  { id: "skills",     label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects",   label: "Projects" },
-  { id: "contact",    label: "Contact" },
-] as const;
+import { content } from "@/config/content";
 
 export const NavbarContent = () => {
   const { scrolled } = useNavbarSelector();
+  const { logoLabel, ctaLabel, ctaHref, links } = content.navbar;
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-        scrolled ? "py-2" : "py-4"
+        "fixed inset-x-0 top-0 z-40 transition-[padding] duration-300",
+        scrolled ? "py-0" : "py-4"
       )}
     >
-      <div className="xl:max-w-[1440px] mx-auto">
+      <div
+        className={cn(
+          "xl:max-w-[1440px] mx-auto transition-all duration-300",
+          scrolled ? "px-0" : "px-4 md:px-6"
+        )}
+      >
         <div
           className={cn(
-            "flex items-center justify-between rounded-full px-4 md:px-5 transition-all duration-300",
+            "flex items-center justify-between transition-all duration-300",
             scrolled
-              ? "h-12 glass shadow-[0_4px_32px_-8px_hsl(var(--accent-primary)/0.15)]"
-              : "h-14 bg-transparent border border-transparent"
+              ? "h-12 rounded-none border-b border-border/40 bg-background/85 backdrop-blur-md px-4 md:px-6"
+              : "h-14 rounded-full px-4 md:px-5 bg-transparent border border-transparent"
           )}
         >
           {/* logo */}
@@ -49,7 +46,7 @@ export const NavbarContent = () => {
             >
               <span className="text-[10px] font-black text-white">S</span>
             </span>
-            Shakil
+            {logoLabel}
           </a>
 
           {/* desktop nav */}
@@ -57,21 +54,20 @@ export const NavbarContent = () => {
             {links.map((l) => (
               <NavLink key={l.id} id={l.id} label={l.label} />
             ))}
-            <MoreDropdown />
           </nav>
 
           {/* right controls */}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <a
-              href="#contact"
+              href={ctaHref}
               className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold text-white transition-all hover:scale-105"
               style={{
                 background: "hsl(var(--accent-primary))",
                 boxShadow: "0 4px 16px -4px hsl(var(--accent-primary)/0.5)",
               }}
             >
-              Hire me
+              {ctaLabel}
             </a>
           </div>
 

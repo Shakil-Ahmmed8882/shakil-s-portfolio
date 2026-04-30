@@ -1,16 +1,15 @@
+import { content } from "@/config/content";
+
 const links = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  ...content.navbar.links.filter((l) => l.id !== "home"),
+  { id: "contact", label: content.navbar.ctaLabel },
 ];
 
 export const FooterQuickLinks = () => {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
-        Quick Links
+        {content.footer.quickLinksLabel}
       </p>
       <nav className="flex flex-col gap-2">
         {links.map((l) => (

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -7,7 +8,7 @@ import gsap from "gsap";
 import { Github, Linkedin, Facebook, Mail, X, ExternalLink, Code2, Zap, Award } from "lucide-react";
 import { socialLinks } from "@/modules/shared/data/socials";
 import { platformStats, totalProblemsSolved } from "@/modules/experience/data/experiences";
-import { AmbientScene } from "../background/AmbientScene";
+
 
 const iconMap = {
   github: Github,
@@ -100,7 +101,7 @@ export const ProfileSidebar = () => {
                 Shakil Ahmmed
               </p>
               <p className="mt-3 text-foreground/70 text-[15px] leading-7">
-                Problem solver. 188+ problems solved on competitive platforms. 1+ year production experience at GKC IT. Currently focusing on AI agents. RAG systems, and LLM context engineering.
+                Problem solver. 1+ year production experience at GKC IT. Currently focusing on AI agents. RAG systems, and LLM context engineering.
               </p>
 
               {/* Navigation Buttons */}
