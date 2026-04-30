@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ArrowUpRight, Download, MapPin } from "lucide-react";
 import { content } from "@/config/content";
+import { ScrollHint } from "./ScrollHint";
 
 export const HeroSection = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const curtainTopRef = useRef<HTMLDivElement>(null);
   const curtainBottomRef = useRef<HTMLDivElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const t = content.hero;
 
   useEffect(() => {
@@ -26,8 +26,6 @@ export const HeroSection = () => {
         y: 18,
       });
       gsap.set(".hero-title-line", { yPercent: 110, skewY: 4 });
-      gsap.set(scrollIndicatorRef.current, { opacity: 0, y: 12 });
-
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
       /* 1. curtains part — top slides up, bottom slides down */
@@ -47,19 +45,7 @@ export const HeroSection = () => {
           ".hero-stat",
           { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 },
           "-=0.45"
-        )
-        /* 3. scroll indicator fades in last */
-        .to(scrollIndicatorRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.1");
-
-      /* continuous scroll-dot bounce */
-      gsap.to(".scroll-dot", {
-        y: 10,
-        duration: 0.9,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 1.8,
-      });
+        );
     }, el);
 
     return () => ctx.revert();
@@ -96,10 +82,9 @@ export const HeroSection = () => {
             "radial-gradient(circle, hsl(var(--accent-primary)) 0%, transparent 70%)",
         }}
       />
-      {/* corner ticks — editorial frame */}
+      <ScrollHint heroRef={rootRef} />
+
       <div className="container relative z-10">
-
-
         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-end">
           {/* ── LEFT: identity + title + ctas ─────────────── */}
           <div className="flex flex-col gap-8">
