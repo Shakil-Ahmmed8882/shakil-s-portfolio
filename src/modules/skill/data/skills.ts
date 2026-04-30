@@ -1,31 +1,20 @@
 export type TSkill = {
   name: string;
-  category: "frontend" | "backend" | "database" | "language";
-  icon: string; // emoji icon
+  icon: string;
+  darkIcon?: string;
 };
 
 export const skills: TSkill[] = [
-  { name: "Next.js",     category: "frontend",  icon: "▲" },
-  { name: "Redux",       category: "frontend",  icon: "🔄" },
-  { name: "TypeScript",  category: "frontend",  icon: "⬡" },
-  { name: "Tailwind CSS",category: "frontend",  icon: "🎨" },
-  { name: "Node.js",     category: "backend",   icon: "⬢" },
-  { name: "Express.js",  category: "backend",   icon: "⚡" },
-  { name: "PostgreSQL",  category: "database",  icon: "🐘" },
-  { name: "Prisma",      category: "database",  icon: "◈" },
-  { name: "MongoDB",     category: "database",  icon: "🍃" },
-  { name: "C / C++",     category: "language",  icon: "⚙" },
-];
-
-export type TSkillGroup = {
-  id: TSkill["category"];
-  title: string;
-  caption: string;
-};
-
-export const skillGroups: TSkillGroup[] = [
-  { id: "frontend", title: "Frontend",  caption: "Interfaces & motion" },
-  { id: "backend",  title: "Backend",   caption: "APIs & runtime" },
-  { id: "database", title: "Database",  caption: "Persistence & ORM" },
-  { id: "language", title: "Languages", caption: "Systems foundation" },
+  { name: "Next.js",     icon: "/skill-icons/nextJs.png" },
+  { name: "React",       icon: "/skill-icons/react.png" },
+  { name: "Redux",       icon: "/skill-icons/redux.png" },
+  { name: "TypeScript",  icon: "/skill-icons/typescript.png" },
+  { name: "Tailwind CSS", icon: "/skill-icons/tailwind.png" },
+  { name: "Node.js",     icon: "/skill-icons/node.png" },
+  { name: "Express.js",  icon: "/skill-icons/expressJs.png", darkIcon: "/skill-icons/expressjsWhite.png" },
+  { name: "PostgreSQL",  icon: "/skill-icons/postgreSQL.png" },
+  { name: "Prisma",      icon: "/skill-icons/prismaorm.png" },
+  { name: "MongoDB",     icon: "/skill-icons/mongodb.png" },
+  { name: "Mongoose",    icon: "/skill-icons/mongoose.png" },
+  { name: "C / C++",     icon: "/skill-icons/c-c++.png" },
 ];

@@ -282,7 +282,7 @@ const Item = ({
       className="flex items-start gap-4"
     >
       <NumberBadge num={num} />
-      <p className="text-muted-foreground text-[17px] md:text-[19px] leading-relaxed max-w-[52ch]">
+      <p className="text-muted-foreground  leading-8 text-[17px] md:text-[19px] max-w-[52ch]">
         {children}
       </p>
     </motion.div>
@@ -332,31 +332,25 @@ export const Manifesto = () => {
               My highg priority always is investing in myself <br /> to produce
               high-quality output. Here is what in my list now:
               {/* Branch 1 */}
-              <div>
-                <Link
-                  className="text-primary opacity-70 underline-offset-8 underline"
-                  href={"https://phitron.io/"}
-                >
+              <div className="leading-loose">
+                
+                    <Linker url="https://phitron.io/">
                   Phitron Machine Learning
-                </Link>
+                    </Linker>
                 (3rd semester, after completing Data Structures, Algorithms &
                 Problem Solving Club)
               </div>
               {/* Branch 2 */}
-              <div>
-                <Link
-                  className="text-primary opacity-70 underline-offset-8 underline"
-                  href={"https://next.programming-hero.com/"}
-                >
-                  Next-Level AI-driven Software Engineering Bootcamp </Link> and <Linker url="https://www.anthropic.com/learn"> Anthropic academic courses</Linker> for deeper LLM understanding
+              <div className="leading-loose">
+                  <Linker url="https://next.programming-hero.com/">
+                  Next-Level AI-driven Software Engineering Bootcamp </Linker> and <Linker url="https://www.anthropic.com/learn"> Anthropic academic courses</Linker> for deeper LLM understanding
               </div>
               {/* Branch 3 */}
-              <div>
+              <div className="leading-loose">
                 I follow deep focus study session by{" "}
                 <Linker url={"https://fahimabdullah.com/"}>
                   Fahim Abdullah
-                </Linker>
-                 to learn complex things faster.
+                </Linker>  to learn complex things faster.
               </div>
             </div>
           </div>
@@ -383,7 +377,7 @@ type LinkedTextProps = {
 };
 const Linker = (props: LinkedTextProps) => (
   <Link
-    className="text-primary opacity-70 underline-offset-8 underline"
+    className="text-primary opacity-80 underline-offset-8 underline"
     href={props.url}
   >
     {props.children}

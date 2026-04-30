@@ -72,7 +72,7 @@ export const ParallaxSection = (props: Props) => {
   ref={sectionRef}
   id={id}
   className={cn(
-    "relative w-full py-28 z-[10] scroll-mt-24",
+    "relative w-full py-24 z-[10] scroll-mt-24",
     className
   )}
 >
