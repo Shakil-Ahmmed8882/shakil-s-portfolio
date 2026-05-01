@@ -252,7 +252,7 @@ export const Manifesto = () => {
         {t.eyebrow}
       </span>
 
-      <h2 className="font-display text-4xl md:text-6xl font-semibold leading-tight md:leading-loose tracking-tight">
+      <h2 className="font-display text-4xl md:text-6xl font-semibold leading-snug md:leading-snug tracking-tight">
         {t.title} <br />
         <span className="text-primary">{t.titleAccent}</span> {t.titleSuffix}
       </h2>

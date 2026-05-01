@@ -75,14 +75,12 @@ export const ParallaxSection = (props: Props) => {
     >
       <span
         aria-hidden
-        className="pointer-events-none select-none absolute inset-x-0 top-[-0.3em] z-[20]
+        className="pointer-events-none select-none absolute left-0 top-4 z-[20]
     font-display font-black uppercase whitespace-nowrap leading-none
-    text-foreground/[0.04] hidden md:block dark:text-foreground/[0.05] text-center overflow-hidden"
+    text-foreground/[0.04] hidden md:block dark:text-foreground/[0.05] text-left overflow-visible"
         style={{
           fontSize: "clamp(8rem, 15vw, 15rem)",
           filter: "blur(2px)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
         }}
       >
         {ghostTitle}

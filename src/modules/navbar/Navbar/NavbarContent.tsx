@@ -5,6 +5,7 @@ import { useNavbarSelector } from "./NavbarContext";
 import { NavLink } from "./NavLink";
 import { MobileMenu } from "./MobileMenu";
 import { ThemeToggle } from "@/modules/shared/components/ThemeToggle";
+import { Logo } from "@/modules/shared/components/Logo";
 import { content } from "@/config/content";
 
 export const NavbarContent = () => {
@@ -20,16 +21,15 @@ export const NavbarContent = () => {
     >
       <div
         className={cn(
-          "xl:max-w-[1440px] mx-auto transition-all duration-300",
-          scrolled ? "px-0" : "px-4 md:px-6"
+          "xl:max-w-[1440px] mx-auto px-4 md:px-6 transition-all duration-300"
         )}
       >
         <div
           className={cn(
             "flex items-center justify-between transition-all duration-300",
             scrolled
-              ? "h-12 rounded-none border-b border-border/40 bg-background/85 backdrop-blur-md px-4 md:px-6"
-              : "h-14 rounded-full px-4 md:px-5 bg-transparent border border-transparent"
+              ? "h-12 rounded-none border-b border-border/40 bg-background/85 backdrop-blur-md"
+              : "h-14 rounded-full bg-transparent border border-transparent"
           )}
         >
           {/* logo */}
@@ -37,15 +37,9 @@ export const NavbarContent = () => {
             href="#home"
             className="flex items-center gap-2 font-display text-base font-bold tracking-tight"
           >
-            <span
-              className="inline-flex h-6 w-6 items-center justify-center rounded-md"
-              style={{
-                background: "hsl(var(--accent-primary))",
-                boxShadow: "0 0 12px hsl(var(--accent-primary)/0.6)",
-              }}
-            >
-              <span className="text-[10px] font-black text-white">S</span>
-            </span>
+            <div className="inline-flex h-6 w-6 items-center justify-center">
+              <Logo size={20} />
+            </div>
             {logoLabel}
           </a>
 

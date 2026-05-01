@@ -83,12 +83,12 @@ export const content = {
   skills: {
     title: "Tech",
     titleAccent: "Stack",
-    description: "The technologies I work with daily.",
+    description: "Languages, frameworks, and tools I work with daily.",
   },
 
   /** Experience */
   experience: {
-    eyebrow: "03 — Track Record",
+    eyebrow: "03 — Professional Journey",
     title: "Experience & milestones.",
     subtitle: "Three companies. One year at GKC IT. Consistent delivery.",
     timeline: {
@@ -106,7 +106,7 @@ export const content = {
   /** Projects */
   projects: {
     eyebrow: "04 — Selected Work",
-    title: "Projects worth a look.",
+    title: "My projects.",
     subtitle: "A handful of things I've built, shipped, and shaped.",
     caseStudyLabel: "case study",
     liveLabel: "Live",
@@ -118,7 +118,7 @@ export const content = {
     eyebrow: "05 — Contact",
     title: "Say Hello",
     subtitle:
-      "I'm available for freelance engagements and full-time roles. Send a brief about your product, timeline, and what you're trying to solve — I'll get back with a clear next step.",
+      "I'd love to hear about your next project. Drop a message and let's talk about how I can help bring your ideas to life.",
     emailLabel: "Email",
     formNameLabel: "Name",
     formEmailLabel: "Email",

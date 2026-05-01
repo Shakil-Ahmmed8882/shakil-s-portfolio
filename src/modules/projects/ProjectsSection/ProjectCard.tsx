@@ -34,12 +34,15 @@ export const ProjectCard = (props: Props) => {
       transition={{ duration: 0.6, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
       className="perspective h-full"
     >
-      <motion.div
+      <motion.a
         ref={cardRef}
+        href={project.live || "#"}
+        target="_blank"
+        rel="noreferrer"
         style={{ rotateX: rx, rotateY: ry }}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
-        className="preserve-3d glass-card rounded-2xl p-6 h-full flex flex-col gap-5 cursor-default"
+        className="preserve-3d glass-card rounded-2xl p-6 h-full flex flex-col gap-5 cursor-pointer block no-underline transition-all hover:shadow-lg"
       >
         {/* moving spotlight */}
         <motion.div
@@ -132,7 +135,7 @@ export const ProjectCard = (props: Props) => {
             className="ml-auto text-muted-foreground/40"
           />
         </div>
-      </motion.div>
+      </motion.a>
     </motion.div>
   );
 };

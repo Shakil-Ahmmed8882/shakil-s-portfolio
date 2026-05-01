@@ -3,13 +3,21 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import type { TSkill } from "../data/skills";
 
 type Props = { skill: TSkill; index: number };
 
 export const SkillCard = ({ skill, index }: Props) => {
-  const { theme } = useTheme();
-  const iconSrc = theme === "dark" && skill.darkIcon ? skill.darkIcon : skill.icon;
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const iconSrc = mounted && currentTheme === "dark" && skill.darkIcon ? skill.darkIcon : skill.icon;
 
   return (
     <motion.div

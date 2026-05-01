@@ -76,7 +76,7 @@ export const HeroSection = () => {
       {/* soft accent spotlight */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 right-[-10%] h-[640px] w-[640px] rounded-full blur-[140px] opacity-20"
+        className="pointer-events-none absolute -top-32 -right-64 h-[800px] w-[800px] rounded-full blur-[160px] opacity-20"
         style={{
           background:
             "radial-gradient(circle, hsl(var(--accent-primary)) 0%, transparent 70%)",

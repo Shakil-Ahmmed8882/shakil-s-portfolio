@@ -1,5 +1,5 @@
-import { Code2 } from "lucide-react";
 import { content } from "@/config/content";
+import { Logo } from "@/modules/shared/components/Logo";
 
 export const FooterBrand = () => {
   const { tagline, yearsHighlight } = content.footer;
@@ -8,15 +8,9 @@ export const FooterBrand = () => {
   return (
     <div className="flex flex-col gap-4 max-w-xs">
       <div className="flex items-center gap-2.5">
-        <span
-          className="flex h-7 w-7 items-center justify-center rounded-lg"
-          style={{
-            background: "hsl(var(--accent-primary))",
-            boxShadow: "0 0 14px hsl(var(--accent-primary)/0.5)",
-          }}
-        >
-          <Code2 size={14} className="text-white" />
-        </span>
+        <div className="flex h-7 w-7 items-center justify-center">
+          <Logo size={20} />
+        </div>
         <span className="font-display text-base font-bold tracking-tight">
           {content.site.name}
         </span>

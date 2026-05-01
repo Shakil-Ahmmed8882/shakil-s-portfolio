@@ -39,7 +39,8 @@ export const ProfileSidebar = () => {
     <>
       <aside
         aria-label="Profile sidebar"
-        className="hidden xl:flex sticky top-24 self-start w-[380px] flex-col gap-6 max-h-[calc(100vh-7rem)]"
+        className="hidden xl:flex fixed top-24 self-start w-[380px] flex-col gap-6 max-h-[calc(100vh-7rem)]"
+        style={{ left: "calc((100vw - 1440px) / 2 + 6px)" }}
       >
         <div className="glass-card rounded-2xl p-6 flex flex-col gap-6 overflow-y-auto scrollbar-hidden relative">
           {/* Sidebar Blinkers */}

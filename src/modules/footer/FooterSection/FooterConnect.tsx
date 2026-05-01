@@ -1,7 +1,7 @@
 "use client";
 
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
-import { socialLinks, CONTACT_EMAIL } from "@/modules/shared/data/socials";
+import { socialLinks } from "@/modules/shared/data/socials";
 import { content } from "@/config/content";
 
 const iconMap = {
@@ -48,12 +48,6 @@ export const FooterConnect = () => {
           );
         })}
       </div>
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        className="text-xs text-muted-foreground transition-colors hover:text-[hsl(var(--accent-primary))] w-fit"
-      >
-        {CONTACT_EMAIL}
-      </a>
     </div>
   );
 };

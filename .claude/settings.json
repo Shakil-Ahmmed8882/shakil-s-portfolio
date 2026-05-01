@@ -13,7 +13,26 @@
 			"Bash(sed -i '405d' \"src/modules/task-create/TaskCreation.tsx\")",
 			"Bash(sed -i '412s/type=\"button\"/<button/' \"src/modules/task-create/TaskCreation.tsx\")",
 			"Bash(sed -i '413d' \"src/modules/task-create/TaskCreation.tsx\")",
-			"Bash(npm run:*)"
+			"Bash(npm run:*)",
+			"Bash(npm run)",
+			"Bash(cd *)",
+			"Bash(git log *)",
+			"Bash(git status *)",
+			"Bash(git diff *)",
+			"Bash(git show *)",
+			"Bash(npx tsc)",
+			"Bash(npx eslint *)",
+			"Bash(curl *)",
+			"Bash(ls *)",
+			"Bash(find *)",
+			"Bash(grep *)",
+			"Bash(cat *)",
+			"Bash(tail *)",
+			"Bash(node *)",
+			"Bash(vercel *)",
+			"mcp__claude_ai_Figma__get_screenshot",
+			"mcp__claude_ai_Figma__get_metadata",
+			"mcp__claude_ai_Figma__get_libraries"
 		],
 		"additionalDirectories": [
 			"c:\\Dev\\SpaceCats\\Metro\\Metro\\Metro Hospitality\\metro-housekeeping\\src\\modules\\task-create\\components"

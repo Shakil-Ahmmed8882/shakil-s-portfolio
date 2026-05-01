@@ -24,10 +24,26 @@ export const ContactForm = () => {
       return;
     }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    toast.success(t.formSuccess);
-    setForm(initial);
-    setSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        toast.error(t.formError);
+        setSubmitting(false);
+        return;
+      }
+
+      toast.success(t.formSuccess);
+      setForm(initial);
+    } catch (error) {
+      toast.error(t.formError);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
