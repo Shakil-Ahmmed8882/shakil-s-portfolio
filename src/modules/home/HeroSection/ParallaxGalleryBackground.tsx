@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { type RefObject, useMemo } from "react";
 import { motion, useMotionTemplate } from "framer-motion";
+
 import {
   gallerySlides,
   galleryRows,

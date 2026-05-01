@@ -57,10 +57,10 @@ export const useParallaxAnimation = (
   // - At rest (0): -14 (left-to-right 3D perspective)
   // - Scrolling down (0.5): -8 (neutral, rotating toward camera)
   // - Fully scrolled (1): 8 (rotated RIGHT, completely folded away)
-  const rotateY = useTransform(smooth, [0, 1], [-14, 8]);
+  const rotateY = useTransform(smooth, [0, 1], [-30, 8]);
 
   // Lift the gallery as it folds — feels like it's drifting up & away.
-  const translateY = useTransform(smooth, [0, 1], [0, -140]);
+  const translateY = useTransform(smooth, [0, 1], [0, -240]);
 
   // Smooth opacity fade: completely invisible when scrolled past.
   // 0    → fully visible (opacity 1)
