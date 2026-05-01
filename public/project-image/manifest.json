@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "proj-001",
+      "src": "/project-image/acc.png",
+      "title": "Acc"
+    },
+    {
+      "id": "proj-002",
+      "src": "/project-image/acc2.png",
+      "title": "Acc2"
+    },
+    {
+      "id": "proj-003",
+      "src": "/project-image/help-tech.png",
+      "title": "Help Tech"
+    },
+    {
+      "id": "proj-004",
+      "src": "/project-image/plan-pixel.jpeg",
+      "title": "Plan Pixel"
+    },
+    {
+      "id": "proj-005",
+      "src": "/project-image/rest-os.png",
+      "title": "Rest Os"
+    },
+    {
+      "id": "proj-006",
+      "src": "/project-image/restos.png",
+      "title": "Restos"
+    }
+  ],
+  "generatedAt": "2026-05-01T14:37:06.044Z"
+}

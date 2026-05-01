@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ArrowUpRight, Download, MapPin } from "lucide-react";
 import { content } from "@/config/content";
 import { ScrollHint } from "./ScrollHint";
+import { ParallaxGalleryBackground } from "./ParallaxGalleryBackground";
 
 export const HeroSection = () => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -71,17 +72,28 @@ export const HeroSection = () => {
     <section
       id="home"
       ref={rootRef}
-      className="relative flex items-center pt-24 pb-12 md:pt-32 md:pb-20 scroll-mt-24 overflow-hidden"
+      className="relative flex items-center pt-24 pb-12 md:pt-32 md:pb-20 scroll-mt-24 min-h-[88vh]"
     >
-      {/* soft accent spotlight */}
+      <ParallaxGalleryBackground heroRef={rootRef} />
+
+      {/* Soft accent spotlight — fixed to the viewport, bleeds far beyond
+          any container max-width on every axis. Sits between the gallery
+          and the foreground content. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -right-64 h-[800px] w-[800px] rounded-full blur-[160px] opacity-20"
+        className="pointer-events-none fixed"
         style={{
+          top: "-30vh",
+          right: "-30vw",
+          width: "120vw",
+          height: "120vh",
           background:
-            "radial-gradient(circle, hsl(var(--accent-primary)) 0%, transparent 70%)",
+            "radial-gradient(circle at 70% 30%, hsl(var(--accent-primary)/0.18) 0%, hsl(var(--accent-primary)/0.06) 35%, transparent 65%)",
+          filter: "blur(60px)",
+          zIndex: 0,
         }}
       />
+
       <ScrollHint heroRef={rootRef} />
 
       <div className="relative z-10 px-3 md:px-6 lg:container">

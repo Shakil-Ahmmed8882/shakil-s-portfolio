@@ -86,7 +86,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "ss01" 1;
-    overflow-x: hidden;
+    /* NOTE: do NOT set overflow-x:hidden on html/body — it creates a scroll
+       container that silently breaks `position: sticky` for any descendant
+       (the ProfileSidebar). Horizontal overflow is prevented via clip below
+       which has the same visual effect without breaking sticky. */
+  }
+  html, body {
+    overflow-x: clip;
   }
 
   ::selection {
@@ -272,6 +278,47 @@ html.lenis, html.lenis body { height: auto; }
 .eq-bar {
   height: 4px;
   animation: eq-bar 0.9s ease-in-out infinite;
+}
+
+/* ─── Parallax gallery — infinite horizontal loop ─────────────
+   Compositor-only: transform is the only animated property.
+   Track contains the slide list duplicated 2×; -50% lands the
+   second copy exactly where the first started, so the loop is
+   mathematically seamless regardless of slide count. */
+@keyframes gallery-marquee-ltr {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes gallery-marquee-rtl {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+.gallery-track {
+  display: flex;
+  flex-shrink: 0;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+/* Pause on hover only when the user actually wants it (desktop, fine pointer) */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-row:hover .gallery-track { animation-play-state: paused; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none !important; }
+}
+
+/* Subtle film grain — pure SVG noise, no extra request, fixed-size repeat */
+.gallery-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+  mix-blend-mode: overlay;
 }
 
 /* ─── Page‑load curtain ─────────────────────────────────────── */

@@ -37,8 +37,8 @@ export const NavbarContent = () => {
             href="#home"
             className="flex items-center gap-2 font-display text-base font-bold tracking-tight"
           >
-            <div className="inline-flex h-6 w-6 items-center justify-center">
-              <Logo size={20} />
+            <div className="inline-flex h-7 w-7 items-center justify-center">
+              <Logo size={26} glow={false} />
             </div>
             {logoLabel}
           </a>

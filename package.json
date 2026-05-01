@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "manifest:projects": "node scripts/generate-project-manifest.mjs",
+    "prebuild": "node scripts/generate-project-manifest.mjs",
+    "predev": "node scripts/generate-project-manifest.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.2",

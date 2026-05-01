@@ -8,8 +8,8 @@ export const FooterBrand = () => {
   return (
     <div className="flex flex-col gap-4 max-w-xs">
       <div className="flex items-center gap-2.5">
-        <div className="flex h-7 w-7 items-center justify-center">
-          <Logo size={20} />
+        <div className="flex h-9 w-9 items-center justify-center">
+          <Logo size={32} glow />
         </div>
         <span className="font-display text-base font-bold tracking-tight">
           {content.site.name}

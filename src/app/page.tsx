@@ -9,9 +9,9 @@ import { ProfileSidebar } from "@/modules/shared/components/ProfileSidebar";
 
 export default function Page() {
   return (
-    <main className="overflow-x-hidden">
-      <div className="mx-auto xl:flex xl:gap-10 xl:max-w-[1440px] xl:px-6">
+    <main>
       <NavbarLayout />
+      <div className="mx-auto xl:flex xl:items-start xl:gap-10 xl:max-w-[1440px] xl:px-6">
         <ProfileSidebar />
         <div className="flex-1 min-w-0">
           <HomeLayout />

@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { Github, Linkedin, Facebook, Mail, X, ExternalLink, Code2, Zap, Award } from "lucide-react";
@@ -39,8 +39,8 @@ export const ProfileSidebar = () => {
     <>
       <aside
         aria-label="Profile sidebar"
-        className="hidden xl:flex fixed top-24 self-start w-[380px] flex-col gap-6 max-h-[calc(100vh-7rem)]"
-        style={{ left: "calc((100vw - 1440px) / 2 + 6px)" }}
+        className="hidden xl:flex sticky w-[340px] shrink-0 flex-col gap-6 z-20"
+        style={{ top: "calc(3.5rem + 3px)", maxHeight: "calc(100vh - (3.5rem + 3px))" }}
       >
         <div className="glass-card rounded-2xl p-6 flex flex-col gap-6 overflow-y-auto scrollbar-hidden relative">
           {/* Sidebar Blinkers */}
@@ -109,12 +109,10 @@ export const ProfileSidebar = () => {
               <div className="mt-6 flex gap-2">
                 {navButtons.map((btn) => {
                   const Icon = btn.icon;
-                  const btnRef = useRef<HTMLAnchorElement>(null);
 
                   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                    if (!btnRef.current) return;
-
-                    const rect = btnRef.current.getBoundingClientRect();
+                    const host = e.currentTarget;
+                    const rect = host.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
 
@@ -128,9 +126,9 @@ export const ProfileSidebar = () => {
                     ripple.style.left = `${x}px`;
                     ripple.style.top = `${y}px`;
 
-                    btnRef.current.style.position = "relative";
-                    btnRef.current.style.overflow = "hidden";
-                    btnRef.current.appendChild(ripple);
+                    host.style.position = "relative";
+                    host.style.overflow = "hidden";
+                    host.appendChild(ripple);
 
                     gsap.to(ripple, {
                       width: "200px",
@@ -146,19 +144,17 @@ export const ProfileSidebar = () => {
 
                   return (
                     <motion.a
-                      ref={btnRef}
                       key={btn.id}
                       href={`#${btn.id}`}
                       onClick={handleClick}
                       whileHover={{ y: -2 }}
                       whileTap={{ scale: 0.97 }}
                       transition={{ duration: 0.2 }}
-                      className="group  relative flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-primary opacity-80 transition-all duration-300 "
+                      className="group relative flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-primary opacity-80 transition-all duration-300"
                       style={{
-                        background: "linear-gradient(135deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.06) 100%)",
-                        // backdropFilter: "blur(8px)",
+                        background:
+                          "linear-gradient(135deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.06) 100%)",
                       }}
-                      
                     >
                       <Icon size={14} className="shrink-0" />
                       <span>{btn.label}</span>
