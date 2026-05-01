@@ -10,7 +10,7 @@ type Props = { project: TProject; index: number };
 
 export const ProjectCard = (props: Props) => {
   const { project, index } = props;
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -19,7 +19,7 @@ export const ProjectCard = (props: Props) => {
   const glowX = useTransform(mx, [-0.5, 0.5], ["0%", "100%"]);
   const glowY = useTransform(my, [-0.5, 0.5], ["0%", "100%"]);
 
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     mx.set((e.clientX - rect.left) / rect.width - 0.5);
     my.set((e.clientY - rect.top) / rect.height - 0.5);
