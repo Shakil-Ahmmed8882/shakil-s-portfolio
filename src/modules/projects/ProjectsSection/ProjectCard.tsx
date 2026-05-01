@@ -42,7 +42,7 @@ export const ProjectCard = (props: Props) => {
         style={{ rotateX: rx, rotateY: ry }}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
-        className="preserve-3d glass-card rounded-2xl p-6 h-full flex flex-col gap-5 cursor-pointer block no-underline transition-all hover:shadow-lg"
+        className="preserve-3d glass-card rounded-2xl p-6 h-full flex flex-col gap-5 cursor-pointer  no-underline transition-all hover:shadow-lg"
       >
         {/* moving spotlight */}
         <motion.div

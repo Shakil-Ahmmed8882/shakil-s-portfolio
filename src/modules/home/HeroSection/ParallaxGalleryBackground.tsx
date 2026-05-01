@@ -16,22 +16,21 @@ type Props = {
   heroRef: RefObject<HTMLElement>;
 };
 
+
 /**
- * Hero-only 3D parallax gallery — production-grade.
+ * Hero-only 3D parallax gallery — production-grade, bound to Hero section.
  *
- *  • position: fixed → bound to viewport, never affected by sidebar/page
- *    layout. zero layout cost as user scrolls.
- *  • Top is negative (-5vh): the gallery extends ABOVE the navbar so there
- *    is no visible gap between navbar and gallery.
+ *  • position: absolute + top-level Hero container → gallery stays within
+ *    Hero bounds. Completely invisible in other sections.
  *  • Opacity, rotateX, rotateY, translateY, scale all animate as smooth
- *    functions of scroll progress (driven by a spring). No threshold-based
- *    "appear/disappear" anywhere — the gallery always glides in & out.
+ *    functions of scroll progress within the hero. Smooth fade-out and
+ *    rotation right as you scroll away.
  *  • pointer-events: none everywhere → it cannot intercept the user.
  *  • Marquee tracks animate via CSS keyframes on transform only → fully
  *    off the main thread.
- *  • The right edge is closer (rotateY negative), left edge farther — and
- *    the left-to-right scrim is heaviest on the left, so the right side
- *    reads with high contrast and the left dissolves into the dark BG.
+ *  • The right edge is closer (rotateY starts negative), rotates RIGHT as
+ *    you scroll down (rotateY becomes positive), giving a folding-away effect.
+ *    Left-to-right scrim is heaviest on the left for contrast/readability.
  */
 export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
   const { rotateX, rotateY, translateY, opacity, scale } =
@@ -57,31 +56,32 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed inset-x-0 select-none"
+      className="pointer-events-none absolute top-0 bottom-0 select-none"
       style={{
         opacity,
-        // Gallery starts 200px above navbar, hidden until you scroll down
-        top: "-200px",
-        height: "100vh",
+        // Extend to full viewport width, not constrained by hero width
+        left: "50%",
+        width: "100vw",
+        marginLeft: "-50vw",
         zIndex: 0,
         willChange: "opacity, transform",
-        // `paint` ensures repaints stay inside this element, but does not
-        // clip fixed children since the element itself is the fixed root.
         contain: "layout paint style",
       }}
     >
       {/* ── 3-D marquee layer (desktop) ── */}
       <motion.div
-        className="absolute inset-0 hidden md:block"
+        className="absolute inset-0 hidden md:flex md:items-center"
         style={{
           transform,
           transformOrigin: "center 50%",
           willChange: "transform",
+          width: "100%",
+          height: "100%",
         }}
       >
         <div
           className="absolute inset-0"
-          style={{ transformStyle: "preserve-3d" }}
+          style={{ transformStyle: "preserve-3d", width: "100%", height: "100%" }}
         >
           {galleryRows.map((row, i) => (
             <GalleryRow key={i} row={row} slides={rowSlides[i]} rowIndex={i} />
@@ -90,7 +90,7 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
       </motion.div>
 
       {/* Mobile fallback — single soft band, no perspective */}
-      <div className="absolute inset-0 md:hidden flex items-center">
+      <div className="absolute inset-0 md:hidden flex items-center w-full h-full">
         <GalleryRow
           row={{ speedSec: 80, direction: "ltr", depth: 0, offsetY: 0, opacity: 0.4 }}
           slides={rowSlides[1] ?? rowSlides[0]}
@@ -108,6 +108,8 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
       <div
         className="absolute inset-0"
         style={{
+          width: "100%",
+          height: "100%",
           background:
             "linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background)/0.98) 22%, hsl(var(--background)/0.82) 40%, hsl(var(--background)/0.42) 58%, hsl(var(--background)/0.08) 78%, transparent 100%)",
         }}
@@ -115,9 +117,12 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
 
       {/* 2. Top fade — keeps gallery from punching through navbar. */}
       <div
-        className="absolute inset-x-0 top-0"
+        className="absolute top-0"
         style={{
-          height: "calc(200px + 3.5rem + 40px)",
+          left: 0,
+          right: 0,
+          width: "100%",
+          height: "calc(100px + 3.5rem + 40px)",
           background:
             "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)/0.85) 55%, hsl(var(--background)/0.35) 85%, transparent 100%)",
         }}
@@ -125,8 +130,11 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
 
       {/* 3. Bottom fade — graceful handoff to next section. */}
       <div
-        className="absolute inset-x-0 bottom-0"
+        className="absolute bottom-0"
         style={{
+          left: 0,
+          right: 0,
+          width: "100%",
           height: "55%",
           background:
             "linear-gradient(180deg, transparent 0%, hsl(var(--background)/0.5) 45%, hsl(var(--background)/0.92) 80%, hsl(var(--background)) 100%)",
@@ -134,7 +142,7 @@ export const ParallaxGalleryBackground = ({ heroRef }: Props) => {
       />
 
       {/* 4. Subtle grain — premium texture */}
-      <div className="gallery-grain absolute inset-0 opacity-[0.05]" />
+      <div className="gallery-grain absolute inset-0 opacity-[0.05]" style={{ width: "100%", height: "100%" }} />
     </motion.div>
   );
 };
@@ -155,6 +163,7 @@ type RowProps = {
 };
 
 const GalleryRow = ({ row, slides, rowIndex, flat = false }: RowProps) => {
+  
   const animationName =
     row.direction === "ltr" ? "gallery-marquee-ltr" : "gallery-marquee-rtl";
 
@@ -221,3 +230,5 @@ const Slide = ({ slide }: { slide: TGallerySlide }) => {
     </div>
   );
 };
+
+

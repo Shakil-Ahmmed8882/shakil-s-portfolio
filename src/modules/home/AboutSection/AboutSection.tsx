@@ -5,7 +5,7 @@ import { Manifesto } from "./Manifesto";
 
 export const AboutSection = () => {
   return (
-    <ParallaxSection id="about" ghostTitle="Self">
+    <ParallaxSection id="about" ghostTitle="">
       <div className="relative grid gap-16 lg:gap-24 items-start">
         <Manifesto />
       </div>
